@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef, createRef } from 'react';
+import style from './style.module.css';
+import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import './style.less';
 
 function Login(props) {
   const [form] = Form.useForm();
@@ -16,7 +16,7 @@ function Login(props) {
   const handleSubmit = () => {
     setLoading(true);
 
-    props.history.push("/home");
+    props.history.push("/home/index");
   }
   return (
     <div>
@@ -32,9 +32,9 @@ function Login(props) {
         }}
         onFinish={onFinish}
       >
-        <div className="login-header">
-          <img className="login-header-icon" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2030278735,2628483606&fm=26&gp=0.jpg"></img>
-          <span className="login-header-title">React-Admin</span>
+        <div className={style.loginHeader}>
+          <img className={style.loginHeaderIcon} alt="react-admin" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2030278735,2628483606&fm=26&gp=0.jpg"></img>
+          <span className={style.loginHeaderTitle}>React-Admin</span>
         </div>
         <Form.Item
           name="username"
@@ -45,7 +45,7 @@ function Login(props) {
             },
           ]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username"/>
+          <Input prefix={<UserOutlined/>} placeholder="Username"/>
         </Form.Item>
         <Form.Item
           name="password"
@@ -57,7 +57,7 @@ function Login(props) {
           ]}
         >
           <Input.Password
-            prefix={<LockOutlined className="site-form-item-icon" />}
+            prefix={<LockOutlined/>}
             name="password"
             type="password"
             placeholder="Password"
@@ -65,7 +65,7 @@ function Login(props) {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" size="large" htmlType="submit" className="login-form-button" onClick={handleSubmit}>
+          <Button type="primary" size="large" htmlType="submit" onClick={handleSubmit}>
             {loading ? "登录中..." : "登录"}
           </Button>
         </Form.Item>
