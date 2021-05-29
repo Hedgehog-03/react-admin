@@ -24,43 +24,28 @@ function HomeMain(props) {
         </div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link exact to="/home/index">仪表板</Link>
+            <Link exact to="/home/index">员工信息</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<BarsOutlined />}>
-            <Link exact to="/home/train">员工参与的公司培训</Link>
+            <Link exact to="/home/train">员工培训</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工技能</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<BarsOutlined />}>
             <Link exact to="/home/index">员工绩效</Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工工作经验</Link>
-          </Menu.Item>
-          <Menu.Item key="6" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">请假记录</Link>
-          </Menu.Item>
-          <Menu.Item key="7" icon={<BarsOutlined />}>
+          <Menu.Item key="4" icon={<BarsOutlined />}>
             <Link exact to="/home/index">员工面试</Link>
           </Menu.Item>
-          <Menu.Item key="8" icon={<BarsOutlined />}>
+          <Menu.Item key="5" icon={<BarsOutlined />}>
+            <Link exact to="/home/index">请假记录</Link>
+          </Menu.Item>
+          <Menu.Item key="6" icon={<BarsOutlined />}>
             <Link exact to="/home/index">员工考勤</Link>
           </Menu.Item>
-          <Menu.Item key="9" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工资质</Link>
+          <Menu.Item key="7" icon={<BarsOutlined />}>
+            <Link exact to="/home/index">员工工资单</Link>
           </Menu.Item>
-          <Menu.Item key="10" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工教育</Link>
-          </Menu.Item>
-          <Menu.Item key="21" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工嘉奖</Link>
-          </Menu.Item>
-          <Menu.Item key="22" icon={<DollarCircleOutlined />}>
-            <Link exact to="/home/index">工资单</Link>
-          </Menu.Item>
-          <Menu.Item key="23" icon={<DollarCircleOutlined />}>
-            <Link exact to="/home/index">工资支付</Link>
+          <Menu.Item key="8" icon={<BarsOutlined />}>
+            <Link exact to="/home/index">系统用户</Link>
           </Menu.Item>
         </Menu>
       </Sider>

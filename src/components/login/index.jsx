@@ -1,7 +1,12 @@
 import style from './style.module.css';
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { 
+  UserOutlined, 
+  LockOutlined, 
+  EyeInvisibleOutlined, 
+  EyeTwoTone 
+} from '@ant-design/icons';
 
 function Login(props) {
   const [form] = Form.useForm();
