@@ -1,11 +1,16 @@
-import AppRouter from './router/AppRouter.jsx';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
+import routes from './router/AdminRoutes';
+import { renderRoutes } from 'react-router-config';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <AppRouter />
+        {renderRoutes(routes)}
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/home" to="/home/information" />
+        </Switch>
       </BrowserRouter>
     </div>
   );

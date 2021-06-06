@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.less';
+import {ConfigProvider} from 'antd';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
+// 设置语言
+import zhCN from 'antd/lib/locale/zh_CN'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+
+moment.locale('zh-cn')
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

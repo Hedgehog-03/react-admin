@@ -1,0 +1,16 @@
+.searchInput {
+  width: 500px;
+  margin-bottom: 20px;
+  vertical-align: center;
+}
+.btn {
+  margin-right: 10px;
+  border-radius: 7px;
+}
+.actionLink {
+  padding: 0 10px;
+  border-right: 1px solid #eee;
+}
+.lastActionLink {
+  border-right: 0;
+}
