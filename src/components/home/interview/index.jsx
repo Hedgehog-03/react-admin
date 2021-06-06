@@ -13,7 +13,7 @@ import {
   Select,
   Pagination,
 } from "antd";
-import { SearchOutlined, PlusOutlined, RedoOutlined } from "@ant-design/icons";
+import { SearchOutlined, PlusOutlined } from "@ant-design/icons";
 import { getInterview, postInterview, putInterview } from "@/request/interview";
 const { Search } = Input;
 const { Option } = Select;
@@ -98,11 +98,6 @@ function Interview() {
       current: current,
       pageSize: size,
     });
-  };
-  // 监听重置按钮的点击事件
-  const refreshTable = () => {
-    setSearchValue("");
-    handleGetInterview();
   };
   // 监听新建对话框的取消事件
   const handleNewItemCancel = () => {
@@ -215,15 +210,6 @@ function Interview() {
             className={style.btn}
           >
             新建
-          </Button>
-          <Button
-            type="default"
-            onClick={refreshTable}
-            size="middle"
-            icon={<RedoOutlined />}
-            className={style.btn}
-          >
-            重置
           </Button>
         </div>
         <Table

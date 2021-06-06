@@ -17,7 +17,6 @@ import {
   DeleteOutlined,
   SearchOutlined,
   PlusOutlined,
-  RedoOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import { getUser, postUser, deleteUser, putUser } from "@/request/user";
@@ -28,9 +27,16 @@ function User() {
   // 表格的列(固定值)
   const columns = [
     {
-      title: "ID",
+      title: "用户ID",
       dataIndex: "id",
       key: "id",
+      ellipsis: true,
+      align: "center",
+    },
+    {
+      title: "员工ID",
+      dataIndex: "staffId",
+      key: "staffId",
       ellipsis: true,
       align: "center",
     },
@@ -63,7 +69,7 @@ function User() {
         <div>
           <a
             href="#"
-            className={`${style.actionLink} ${style.lastActionLink}`}
+            className={style.actionLink}
             onClick={(e) => deleteByKey(e, record.id)}
           >
             删除
@@ -118,11 +124,6 @@ function User() {
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
     if (!e.target.value) handleGetUser();
-  };
-  // 监听重置按钮的点击事件
-  const refreshTable = () => {
-    setSearchValue("");
-    handleGetUser();
   };
   // 页码变化时改变表格数据
   const handleTableChange = (current, size) => {
@@ -212,6 +213,7 @@ function User() {
   };
   // 监听编辑对话框的确认事件(表单的onFinish替代)
   const onEditItemModalFinish = (values) => {
+    console.log(values);
     editItemForm.resetFields();
     delete values.staffName;
     putUser(values).then(res => {
@@ -299,15 +301,6 @@ function User() {
             className={style.btn}
           >
             批量删除
-          </Button>
-          <Button
-            type="default"
-            onClick={refreshTable}
-            size="middle"
-            icon={<RedoOutlined />}
-            className={style.btn}
-          >
-            重置
           </Button>
         </div>
         <Alert
@@ -433,7 +426,25 @@ function User() {
         >
           <Form.Item
             name="id"
-            label="ID"
+            label="用户id"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                type: "number",
+                transform(value) {
+                  if (value) {
+                    return Number(value);
+                  }
+                },
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="staffId"
+            label="员工id"
             hasFeedback
             rules={[
               {

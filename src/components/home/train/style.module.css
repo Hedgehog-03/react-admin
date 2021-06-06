@@ -10,10 +10,3 @@
 .alert {
   margin: 15px 0;
 }
-.actionLink {
-  padding: 0 10px;
-  border-right: 1px solid #eee;
-}
-.lastActionLink {
-  border-right: 0;
-}

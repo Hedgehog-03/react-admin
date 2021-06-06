@@ -16,7 +16,7 @@ import {
   Radio,
   Pagination,
 } from "antd";
-import { SearchOutlined, RedoOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import moment from "moment";
 import { getInfo, putInfo } from "@/request/information";
 import { getPosition } from "@/request/position";
@@ -165,11 +165,6 @@ function Information() {
       pageSize: size,
     });
   };
-  // 监听重置按钮的点击事件
-  const refreshTable = () => {
-    setSearchValue("");
-    handleGetInfo();
-  };
   // 监听编辑按钮的点击
   const updateByKey = (e, record) => {
     e.preventDefault();
@@ -266,17 +261,6 @@ function Information() {
           addonBefore={<span>ID:</span>}
           className={style.searchInput}
         />
-        <div style={{ marginBottom: "15px" }}>
-          <Button
-            type="default"
-            onClick={refreshTable}
-            size="middle"
-            icon={<RedoOutlined />}
-            className={style.btn}
-          >
-            重置
-          </Button>
-        </div>
         <Table
           style={{ marginBottom: "15px" }}
           columns={columns}

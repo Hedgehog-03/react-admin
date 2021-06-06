@@ -19,7 +19,6 @@ import {
   DeleteOutlined,
   SearchOutlined,
   PlusOutlined,
-  RedoOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import moment from "moment";
@@ -94,7 +93,6 @@ function Train() {
       render: (_, record) => (
         <a
           href="#"
-          className={`${style.actionLink} ${style.lastActionLink}`}
           onClick={(e) => deleteByKey(e, record.id)}
         >
           删除
@@ -168,11 +166,6 @@ function Train() {
     setBatchDeleteModalVisible(false);
     setLoading(false);
     message.info("已取消删除！");
-  };
-  // 监听重置按钮的点击事件
-  const refreshTable = () => {
-    setSearchValue("");
-    handleGetTrain();
   };
   // 监听单行删除按钮的点击
   const deleteByKey = (e, id) => {
@@ -291,15 +284,6 @@ function Train() {
             className={style.btn}
           >
             批量删除
-          </Button>
-          <Button
-            type="default"
-            onClick={refreshTable}
-            size="middle"
-            icon={<RedoOutlined />}
-            className={style.btn}
-          >
-            重置
           </Button>
         </div>
         <Alert
