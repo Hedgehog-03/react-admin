@@ -41,15 +41,6 @@ function HomeMain(props) {
           <Menu.Item key="/home/interview" icon={<BarsOutlined />}>
             <Link exact to="/home/interview">员工面试</Link>
           </Menu.Item>
-          <Menu.Item key="/home/index" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">请假记录</Link>
-          </Menu.Item>
-          <Menu.Item key="/home/index" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工考勤</Link>
-          </Menu.Item>
-          <Menu.Item key="/home/index" icon={<BarsOutlined />}>
-            <Link exact to="/home/index">员工工资单</Link>
-          </Menu.Item>
           {
             window.sessionStorage.getItem("role") === "root" ? 
             (<Menu.Item key="/home/user" icon={<BarsOutlined />}>

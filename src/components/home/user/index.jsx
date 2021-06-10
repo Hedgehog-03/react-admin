@@ -213,7 +213,6 @@ function User() {
   };
   // 监听编辑对话框的确认事件(表单的onFinish替代)
   const onEditItemModalFinish = (values) => {
-    console.log(values);
     editItemForm.resetFields();
     delete values.staffName;
     putUser(values).then(res => {

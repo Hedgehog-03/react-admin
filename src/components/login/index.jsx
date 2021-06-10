@@ -55,7 +55,7 @@ function Login(props) {
             alt="react-admin"
             src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2030278735,2628483606&fm=26&gp=0.jpg"
           ></img>
-          <span className={style.loginHeaderTitle}>React-Admin</span>
+          <span className={style.loginHeaderTitle}>人事管理</span>
         </div>
         <Form.Item
           name="username"
