@@ -1,6 +1,4 @@
 // 主页面
-
-import style from './style.module.css';
 import React, { useState } from 'react';
 import { Link, withRouter, Switch, Route } from 'react-router-dom';
 import { Layout, Menu, Avatar, Button } from 'antd';
@@ -11,10 +9,10 @@ import {
 } from '@ant-design/icons';
 // import { renderRoutes } from 'react-router-config';
 import AuthRoute from '@/router/AuthRoute'
-import User from '../user';
-import noAuth from '../../error/403';
-import notFound from '../../error/404';
-const { Header, Content, Footer, Sider } = Layout;
+import User from '../User';
+import noAuth from '@/components/Error/403';
+import notFound from '@/components/Error/404';
+import style from './style.module.css';
 
 function HomeMain(props) {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,7 +22,7 @@ function HomeMain(props) {
   }
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={e => setCollapsed(!collapsed)}>
+      <Layout.Sider collapsible collapsed={collapsed} onCollapse={e => setCollapsed(!collapsed)}>
         <div className={style.logo}>
           {collapsed || "React Admin"}
         </div>
@@ -48,18 +46,18 @@ function HomeMain(props) {
             </Menu.Item>) : null
           }
         </Menu>
-      </Sider>
+      </Layout.Sider>
       <Layout>
-        <Header className={style.siteLayoutBackground} style={{ padding: 0 }}>
+        <Layout.Header className={style.siteLayoutBackground} style={{ padding: 0 }}>
           <div className={style.profile}>
-            <a href="#" >
+            <a href="/#" >
               <Avatar size="small" icon={<UserOutlined />} className={style.avatar} />
               Hedgehog
             </a>
-            <Button href="" style={{marginLeft: "10px"}} size="middle" danger onClick={logOut}>退出</Button>
+            <Button style={{marginLeft: "10px"}} size="middle" danger onClick={logOut}>退出</Button>
           </div>
-        </Header>
-        <Content style={{ margin: '0 16px' }}>
+        </Layout.Header>
+        <Layout.Content style={{ margin: '0 16px' }}>
           {/* 第一种方法实现登录鉴权 */}
           {/* {
             sessionStorage.getItem("token") ? renderRoutes(props.route.routes) : <Redirect to="/login" />
@@ -76,8 +74,8 @@ function HomeMain(props) {
             }
             <Route component={notFound}/>
           </Switch>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        </Layout.Content>
+        <Layout.Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Layout.Footer>
       </Layout>
     </Layout>
   );

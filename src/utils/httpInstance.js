@@ -9,8 +9,6 @@ import 'nprogress/nprogress.css'
 const httpInstance = axios.create({
   timeout: 5000,
   baseURL: BASE_URL,
-  // 跨域请求需要添加这行代码
-  // withCredentials: true,
 })
 
 // 在请求拦截器中，展示进度条NProgress.start()

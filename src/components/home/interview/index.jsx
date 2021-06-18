@@ -1,6 +1,4 @@
 // 员工面试
-
-import style from "./style.module.css";
 import React, { useState, useEffect } from "react";
 import {
   Table,
@@ -15,9 +13,6 @@ import {
 } from "antd";
 import { SearchOutlined, PlusOutlined } from "@ant-design/icons";
 import { getInterview, postInterview, putInterview } from "@/request/interview";
-const { Search } = Input;
-const { Option } = Select;
-const { TextArea } = Input;
 
 function Interview() {
   // 搜索框的数据源(受控组件)
@@ -59,7 +54,7 @@ function Interview() {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <a href="#" onClick={(e) => editByKey(e, record)}>
+        <a href="/#" onClick={(e) => editByKey(e, record)}>
           编辑
         </a>
       ),
@@ -175,7 +170,7 @@ function Interview() {
   };
   useEffect(() => {
     handleGetInterview();
-  }, [pagination]);
+  }, [pagination]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       <Card
@@ -184,7 +179,7 @@ function Interview() {
         }
         style={{ width: "100%", marginTop: "20px" }}
       >
-        <Search
+        <Input.Search
           value={searchValue}
           placeholder="请输入员工ID"
           allowClear
@@ -199,7 +194,7 @@ function Interview() {
             val && setData(data.filter((item) => item.id === Number(val)));
           }}
           addonBefore={<span>ID:</span>}
-          className={style.searchInput}
+          className="searchInput"
         />
         <div style={{ marginBottom: "15px" }}>
           <Button
@@ -207,7 +202,7 @@ function Interview() {
             onClick={(e) => setNewItemModalVisible(true)}
             size="middle"
             icon={<PlusOutlined />}
-            className={style.btn}
+            className="btn"
           >
             新建
           </Button>
@@ -285,10 +280,10 @@ function Interview() {
             rules={[{ required: true }]}
           >
             <Select>
-              <Option value="0">未面试</Option>
-              <Option value="1">已面试</Option>
-              <Option value="2">面试通过</Option>
-              <Option value="3">面试不通过</Option>
+              <Select.Option value="0">未面试</Select.Option>
+              <Select.Option value="1">已面试</Select.Option>
+              <Select.Option value="2">面试通过</Select.Option>
+              <Select.Option value="3">面试不通过</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -297,16 +292,16 @@ function Interview() {
             hasFeedback
             rules={[{ required: true }]}
           >
-            <TextArea />
+            <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               确认
             </Button>
             <Button
               htmlType="button"
               onClick={handleNewItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>
@@ -362,10 +357,10 @@ function Interview() {
             rules={[{ required: true }]}
           >
             <Select>
-              <Option value="0">未面试</Option>
-              <Option value="1">已面试</Option>
-              <Option value="2">面试通过</Option>
-              <Option value="3">面试不通过</Option>
+              <Select.Option value="0">未面试</Select.Option>
+              <Select.Option value="1">已面试</Select.Option>
+              <Select.Option value="2">面试通过</Select.Option>
+              <Select.Option value="3">面试不通过</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -374,16 +369,16 @@ function Interview() {
             hasFeedback
             rules={[{ required: true }]}
           >
-            <TextArea />
+            <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               新建
             </Button>
             <Button
               htmlType="button"
               onClick={handleNewItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>

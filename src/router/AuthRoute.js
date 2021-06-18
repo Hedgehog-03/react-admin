@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Redirect, Route } from "react-router-dom";
 
 function AuthRoute({ component: Children, ...rest }) {
@@ -8,7 +7,6 @@ function AuthRoute({ component: Children, ...rest }) {
       {...rest}
       render={() => {
         let token = sessionStorage.getItem("token");
-        // let role = sessionStorage.getItem("username");
         if (token) {
           return <Children />;
         } else {

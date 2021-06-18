@@ -9,13 +9,13 @@
 .siteLayoutBackground {
   height: 50px;
   background-color: #fff;
-  box-shadow: 0 2px 8px #f0f1f2
+  box-shadow: 0 2px 8px #f0f1f2;
 }
 .profile {
   float: right;
   margin-right: 10px;
   line-height: 50px;
-  color: #666;
+  color: #666!important;
 }
 .avatar {
   margin-right: 5px;

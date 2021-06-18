@@ -1,6 +1,4 @@
 // 系统用户
-
-import style from "./style.module.css";
 import React, { useEffect, useState } from "react";
 import {
   Table,
@@ -19,9 +17,9 @@ import {
   PlusOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+
 import { getUser, postUser, deleteUser, putUser } from "@/request/user";
-const { Search } = Input;
-const { confirm } = Modal;
+import style from "./style.module.css";
 
 function User() {
   // 表格的列(固定值)
@@ -68,14 +66,14 @@ function User() {
       render: (_, record) => (
         <div>
           <a
-            href="#"
+            href="/#"
             className={style.actionLink}
             onClick={(e) => deleteByKey(e, record.id)}
           >
             删除
           </a>
           <a
-            href="#"
+            href="/#"
             className={`${style.actionLink} ${style.lastActionLink}`}
             onClick={(e) => editByKey(e, record)}
           >
@@ -136,7 +134,7 @@ function User() {
   const deleteByKey = (e, id) => {
     e.preventDefault();
     // 确认删除对话框
-    confirm({
+    Modal.confirm({
       title: "确定删除吗?",
       icon: <ExclamationCircleOutlined />,
       okText: "确认",
@@ -254,7 +252,7 @@ function User() {
   // 组件挂载时获取表格数据
   useEffect(() => {
     handleGetUser();
-  }, [pagination]);
+  }, [pagination]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       <Card
@@ -263,7 +261,7 @@ function User() {
         }
         style={{ width: "100%", marginTop: "20px" }}
       >
-        <Search
+        <Input.Search
           value={searchValue}
           placeholder="请输入员工ID"
           allowClear
@@ -278,7 +276,7 @@ function User() {
             val && setData(data.filter((item) => item.id === Number(val)));
           }}
           addonBefore={<span>ID:</span>}
-          className={style.searchInput}
+          className="searchInput"
         />
         <div>
           <Button
@@ -286,7 +284,7 @@ function User() {
             onClick={(e) => setNewItemModalVisible(true)}
             size="middle"
             icon={<PlusOutlined />}
-            className={style.btn}
+            className="btn"
           >
             新建
           </Button>
@@ -297,7 +295,7 @@ function User() {
             loading={loading}
             size="middle"
             icon={<DeleteOutlined />}
-            className={style.btn}
+            className="btn"
           >
             批量删除
           </Button>
@@ -395,13 +393,13 @@ function User() {
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               新建
             </Button>
             <Button
               htmlType="button"
               onClick={handleNewItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>
@@ -487,13 +485,13 @@ function User() {
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               确认
             </Button>
             <Button
               htmlType="button"
               onClick={handleEditItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>

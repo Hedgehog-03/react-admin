@@ -1,6 +1,4 @@
 // 员工绩效
-
-import style from "./style.module.css";
 import React, { useEffect, useState } from "react";
 import {
   Table,
@@ -15,8 +13,8 @@ import {
 } from "antd";
 import { SearchOutlined, PlusOutlined } from "@ant-design/icons";
 import moment from "moment";
+
 import { getPerformance, postPerformance } from "@/request/performance";
-const { Search } = Input;
 
 function Performance() {
   // 搜索框的数据源(受控组件)
@@ -114,7 +112,7 @@ function Performance() {
   };
   useEffect(() => {
     handleGetPerformance();
-  }, [pagination]);
+  }, [pagination]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       <Card
@@ -123,7 +121,7 @@ function Performance() {
         }
         style={{ width: "100%", marginTop: "20px" }}
       >
-        <Search
+        <Input.Search
           value={searchValue}
           placeholder="请输入员工ID"
           allowClear
@@ -138,7 +136,7 @@ function Performance() {
             val && setData(data.filter((item) => item.id === Number(val)));
           }}
           addonBefore={<span>ID:</span>}
-          className={style.searchInput}
+          className="searchInput"
         />
         <div style={{ marginBottom: "15px" }}>
           <Button
@@ -146,7 +144,7 @@ function Performance() {
             onClick={(e) => setNewItemModalVisible(true)}
             size="middle"
             icon={<PlusOutlined />}
-            className={style.btn}
+            className="btn"
           >
             新建
           </Button>
@@ -224,13 +222,13 @@ function Performance() {
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }}>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               新建
             </Button>
             <Button
               htmlType="button"
               onClick={handleNewItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>

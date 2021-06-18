@@ -1,7 +1,5 @@
 // 员工信息
-
-import style from "./style.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Table,
   Card,
@@ -18,11 +16,11 @@ import {
 } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import moment from "moment";
+
 import { getInfo, putInfo } from "@/request/information";
 import { getPosition } from "@/request/position";
 import { getQualification } from "@/request/qualification";
-const { Search } = Input;
-const { Option } = Select;
+import style from "./style.module.css";
 
 function Information() {
   // 表格的列(固定值)
@@ -122,7 +120,7 @@ function Information() {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <a href="#" onClick={(e) => updateByKey(e, record)}>
+        <a href="/#" onClick={(e) => updateByKey(e, record)}>
           编辑
         </a>
       ),
@@ -235,7 +233,7 @@ function Information() {
     getQualification(1, 100, "").then((res) => {
       setQualificationList(res.data.qualificationList);
     });
-  }, [pagination]);
+  }, [pagination]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       <Card
@@ -244,7 +242,7 @@ function Information() {
         }
         style={{ width: "100%", marginTop: "20px" }}
       >
-        <Search
+        <Input.Search
           value={searchValue}
           placeholder="请输入员工ID"
           allowClear
@@ -259,7 +257,7 @@ function Information() {
             val && setData(data.filter((item) => item.id === Number(val)));
           }}
           addonBefore={<span>ID:</span>}
-          className={style.searchInput}
+          className="searchInput"
         />
         <Table
           style={{ marginBottom: "15px" }}
@@ -350,9 +348,9 @@ function Information() {
           >
             <Select>
               {positionList.map((item) => (
-                <Option key={item.id} value={item.id}>
+                <Select.Option key={item.id} value={item.id}>
                   {item.name}
-                </Option>
+                </Select.Option>
               ))}
             </Select>
           </Form.Item>
@@ -364,9 +362,9 @@ function Information() {
           >
             <Select>
               {qualificationList.map((item) => (
-                <Option key={item.id} value={item.id}>
+                <Select.Option key={item.id} value={item.id}>
                   {item.name}
-                </Option>
+                </Select.Option>
               ))}
             </Select>
           </Form.Item>
@@ -377,9 +375,9 @@ function Information() {
             hasFeedback
           >
             <Select>
-              <Option value="本科毕业">本科毕业</Option>
-              <Option value="硕士毕业">硕士毕业</Option>
-              <Option value="博士毕业">博士毕业</Option>
+              <Select.Option value="本科毕业">本科毕业</Select.Option>
+              <Select.Option value="硕士毕业">硕士毕业</Select.Option>
+              <Select.Option value="博士毕业">博士毕业</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -421,13 +419,13 @@ function Information() {
             </Radio.Group>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6 }} hasFeedback>
-            <Button type="primary" htmlType="submit" className={style.btn}>
+            <Button type="primary" htmlType="submit" className="btn">
               确认
             </Button>
             <Button
               htmlType="button"
               onClick={handleEditItemCancel}
-              className={style.btn}
+              className="btn"
             >
               取消
             </Button>

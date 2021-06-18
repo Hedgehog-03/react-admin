@@ -1,9 +1,9 @@
-import Login from '../components/login';
-import HomeMain from '../components/home/main';
-import HomeInformation from '../components/home/information'
-import HomeTrain from '../components/home/train';
-import Performance from '../components/home/performance'
-import Interview from '../components/home/interview'
+import Login from '../components/Login';
+import HomeMain from '../components/Home/Main';
+import HomeInformation from '../components/Home/Information'
+import HomeTrain from '../components/Home/Train';
+import Performance from '../components/Home/Performance'
+import Interview from '../components/Home/Interview'
 
 const routes = [
   {

@@ -1,6 +1,4 @@
 // 登录页面
-
-import style from "./style.module.css";
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, message } from "antd";
 import {
@@ -9,7 +7,9 @@ import {
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
+
 import { login } from "@/request/login";
+import style from "./style.module.css";
 
 function Login(props) {
   const [loginForm] = Form.useForm();
@@ -40,7 +40,7 @@ function Login(props) {
       username: "root",
       password: "123456",
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       <Form

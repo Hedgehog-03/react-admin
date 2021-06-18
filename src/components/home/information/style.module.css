@@ -1,9 +1,9 @@
-.searchInput {
-  width: 500px;
-  margin-bottom: 20px;
-  vertical-align: center;
+:global(.searchInput) {
+  width: 500px!important;
+  margin-bottom: 20px!important;
+  vertical-align: center!important;
 }
-.btn {
-  margin-right: 10px;
-  border-radius: 7px;
+:global(.btn) {
+  margin-right: 10px!important;
+  border-radius: 7px!important;
 }
