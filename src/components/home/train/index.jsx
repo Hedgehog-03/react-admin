@@ -18,6 +18,12 @@ import {
 
 import style from './style.module.css';
 import useTrain from './useTrain';
+import {
+  CARD_TITLE,
+  CREATE_MODAL_TITLE,
+  DELETE_MODAL_TITLE,
+  SEARCH_PLACEHOLDER
+} from './const';
 
 function Train() {
   const {
@@ -42,7 +48,7 @@ function Train() {
     loading,
     onNewItemModalFinish
   } = useTrain();
-  const CARD_TITLE = '员工培训';
+
   return (
     <div>
       <Card
@@ -55,7 +61,7 @@ function Train() {
       >
         <Input.Search
           value={searchValue}
-          placeholder='请输入员工ID'
+          placeholder={SEARCH_PLACEHOLDER}
           allowClear
           enterButton={
             <Button type='primary' icon={<SearchOutlined />}>
@@ -127,7 +133,7 @@ function Train() {
         />
       </Card>
       <Modal
-        title='注意：你正在删除数据，执行之后不可恢复'
+        title={DELETE_MODAL_TITLE}
         visible={batchDeleteModalVisible}
         onOk={handleBatchDeleteOk}
         onCancel={handleBatchDeleteCancel}
@@ -143,7 +149,7 @@ function Train() {
         />
       </Modal>
       <Modal
-        title='新建员工培训表'
+        title={CREATE_MODAL_TITLE}
         visible={newItemModalVisible}
         onCancel={handleNewItemCancel}
         footer={null}
