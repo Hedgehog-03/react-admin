@@ -176,7 +176,8 @@ export default function useTrain() {
     values.endTime = values.endTime.valueOf();
     postTrain(values).then(res => {
       console.log(res);
-      if (res.data.status !== 200) return message.error('新建失败！');
+      const error = res.data.status !== 200; // 新建一个变量表示 在做什么逻辑判断 使得代码更加能让人读懂
+      if (error) return message.error('新建失败！');
       handleGetTrain();
       message.success('新建成功！');
     });
